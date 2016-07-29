@@ -16,12 +16,11 @@ const send = (data) => {
 }
 
 router.get('/', function (req, res, next) {
-  console.log('ping');
   return res.redirect('https://github.com/gpedro/slack-portuguese-jokes/');
 });
 
 router.post('/', function(req, res, next) {
-  send(res.body)
+  send(res.body);
   return res.status(200);
 });
 
