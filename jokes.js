@@ -8,11 +8,13 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
+  const message = joke.get();
   return res.status(200).json({
     "response_type": "in_channel",
     "attachments": [
       {
-          "text": joke.get()
+          "text": message,
+          "fallback": message
       }
     ]
   });
