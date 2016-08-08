@@ -1,5 +1,4 @@
 const express = require('express');
-const got = require('got');
 const router = express.Router();
 const joke = require('./joke');
 
