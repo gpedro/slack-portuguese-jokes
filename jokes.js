@@ -3,11 +3,9 @@ const router = express.Router();
 const joke = require('./joke');
 const deniedMessage = "este comando não pode ser utilizado neste canal.";
 
-router.get('/', function (req, res, next) {
-  return res.redirect('https://github.com/gpedro/slack-portuguese-jokes/');
-});
+router.get('/',  (req, res, next) => res.redirect('https://github.com/gpedro/slack-portuguese-jokes/'));
 
-router.post('/', function(req, res, next) {
+router.post('/', (req, res, next) => {
   const message = joke.get();
   const target = (req.query.allowed_channels || '').split(',');
 

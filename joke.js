@@ -8,17 +8,12 @@ const get = () => {
 }
 
 const reload = () => {
+
   console.info('Carregando Jokes ...');
   return got('https://raw.githubusercontent.com/CoolerVoid/portuguese_jokes/master/README.md')
-    .then(response => {
-      return response.body;
-    })
-    .then(response => {
-      return response.split('---')[1];
-    })
-    .then(response => {
-      return response.split('\n\n');
-    })
+    .then(response => response.body)
+    .then(response => response.split('---')[1])
+    .then(response => response.split('\n\n'))
     .then(response => {
       memory.put(key, JSON.stringify(response));
       console.info(get());
